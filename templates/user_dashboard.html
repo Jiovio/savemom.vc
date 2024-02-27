@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <!-- Include Jitsi Meet external API script -->
+    <script src="https://meet.jit.si/external_api.js"></script>
+    <style>
+        /* CSS for the layout */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+        button[type="submit"] {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .meet-container {
+            width: 100%;
+            height: 500px;
+            margin-top: 20px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .form-container {
+            display: none;
+            margin-top: 20px;
+        }
+        @media (max-width: 768px) {
+            /* Adjust layout for smaller screens */
+            .container {
+                padding: 10px;
+            }
+        }
+       
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h5>Patient Name: demomom</h5>
+        <h2>Appointment</h2>
+        <!-- Form for entering room number -->
+        <div id="room-form" class="form-group">
+            <label for="room-number">Enter Meeting Code:</label>
+            <input type="text" id="room-number" name="room-number" required>
+            <br>
+            <button type="submit" onclick="joinRoom()">Join Room</button>
+        </div>
+
+        <!-- Container for Jitsi Meet video conference -->
+        <div id="meet-container" class="meet-container"></div>
+
+        <!-- Form container -->
+        <!--div id="form-container" class="form-container">
+            <h3>Submit Data</h3>
+            
+            <form onsubmit="submitForm()">
+                <div class="form-group">
+                    <label for="temperature">Temperature:</label>
+                    <input type="text" id="temperature" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="ecg">ECG:</label>
+                    <input type="text" id="ecg" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="pulseOximeter">Pulse Oximeter:</label>
+                    <input type="text" id="pulseOximeter" required>
+                </div>
+
+                <button type="submit">Submit</button>
+            </form>
+        </div-->
+    </div>
+
+    <!-- JavaScript to handle form submission and initialize Jitsi Meet -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.3.2/socket.io.js"></script>
+    <script>
+        function joinRoom() {
+            const roomNumber = document.getElementById('room-number').value.trim();
+            if (roomNumber !== '') {
+                // Initialize Jitsi Meet
+                const domain = 'meet.jit.si';
+                const options = {
+                    roomName: roomNumber,
+                    parentNode: document.querySelector('#meet-container'),
+                    userInfo: {
+                        displayName: 'Demo' // Specify your display name here
+                    }
+                };
+                const api = new JitsiMeetExternalAPI(domain, options);
+
+                // Show the form container when Jitsi Meet is opened
+                document.getElementById('form-container').style.display = 'block';
+            }
+        }
+
+        
+    </script>
+</body>
+</html>

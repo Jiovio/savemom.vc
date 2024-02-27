@@ -27,7 +27,10 @@ SECRET_KEY = 'django-insecure-dak2@j)w2gosr_ka6^61q2mkz)^sx-x31+k0fz6dkxo)rpg%s%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'tele-consultation.savemom.in',
+]
+
 
 
 # Application definition

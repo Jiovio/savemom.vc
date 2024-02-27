@@ -28,8 +28,11 @@ SECRET_KEY = 'django-insecure-dak2@j)w2gosr_ka6^61q2mkz)^sx-x31+k0fz6dkxo)rpg%s%
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'tele-consultation.savemom.in',
+    '127.0.0.1',
+    'tele-consultation.savemom.in',  # Add your domain if needed
 ]
+
+
 
 
 
@@ -141,3 +144,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_URL = '/'
   # Adjust the URL to your login page URL
+CSRF_COOKIE_SECURE = True
+
+CSRF_TRUSTED_ORIGINS = [
+    'http://tele-consultation.savemom.in',  
+]
+
+LOGIN_REDIRECT_URL = '/dashboard/'

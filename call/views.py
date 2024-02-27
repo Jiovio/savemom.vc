@@ -16,8 +16,7 @@ from .forms import SignupForm
 from .forms import SignupForm, UserLoginForm
 from .models import CustomUser
 from django.views.decorators.csrf import csrf_exempt
-from socketio import socketio_manage
-from socketio.namespace import BaseNamespace
+
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 
@@ -107,13 +106,3 @@ def user_dashboard(request):
     else:
         return redirect('user_login')
     
-class DataNamespace(BaseNamespace):
-    def on_submit_data(self, data):
-        # Broadcast the received data to all connected clients
-        self.emit('display_data', data, broadcast=True)
-
-def socketio(request):
-    return HttpResponse(content_type="application/javascript")
-
-def socketio_data(request):
-    socketio_manage(request.environ, {'/data': DataNamespace})

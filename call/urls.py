@@ -8,8 +8,7 @@ from . import views
 from .views import signup
 from .views import user_login, user_dashboard
 
-from .views import socketio, socketio_data
-from django.urls import re_path
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', login_view, name='login'),
@@ -20,6 +19,5 @@ urlpatterns = [
     path('signup/', signup, name='signup'),
     path('login/', user_login, name='user_login'),
     path('user_dashboard/', user_dashboard, name='user_dashboard'),
-    re_path(r'^socket.io/$', socketio),
-    re_path(r'^socket.io/data/$', socketio_data),
+    
 ]

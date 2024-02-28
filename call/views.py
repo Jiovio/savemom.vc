@@ -42,7 +42,9 @@ def login_view(request):
 @login_required
 def dashboard_view(request):
     return render(request, 'dashboard.html')
-
+def user_management(request):
+    users = CustomUser.objects.all()
+    return render(request, 'usermanagement.html', {'users': users})
 def initiate_video_call(request):
     mothers = Mother.objects.all()  # Retrieve all Mother objects from the database
     return render(request, 'initiate_video_call.html', {'mothers': mothers})

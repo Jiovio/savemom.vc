@@ -147,7 +147,7 @@ LOGIN_URL = '/'
 CSRF_COOKIE_SECURE = True
 
 CSRF_TRUSTED_ORIGINS = [
-    'http://tele-consultation.savemom.in',  
+    'https://tele-consultation.savemom.in',  
 ]
 
 LOGIN_REDIRECT_URL = '/dashboard/'

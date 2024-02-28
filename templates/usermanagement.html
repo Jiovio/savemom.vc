@@ -146,99 +146,55 @@
             transform: translateY(0px);
         }
     }
-    .card-container {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr); /* 3 columns */
-        gap: 20px; /* Gap between cards */
-    }
-
-    .card {
-        padding: 20px;
-        background-color: #fff;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    .card-content {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-
-    /* Customize the icon size and color */
+    
+   
+    
+    
     
 
-    /* Customize colors and styles as needed */
-    .card:nth-child(odd) {
-        background-color: white;
-    }
-
-    .card:nth-child(even) {
-        background-color: wite;
-    }
-    .card1 {
-        padding: 20px;
-        background-color: #fff;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        width: 1000px; /* Adjust width as needed */
-        margin: 20px;
-    }
-
-    /* Text box styles */
-    input[type="text"] {
-        width: 80%; /* Adjust width as needed */
-        padding: 10px;
-        margin-bottom: 10px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        box-sizing: border-box;
-    }
-
-    /* Button styles */
-    .btn {
-        padding: 10px 20px;
-        background-color: #007bff;
-        color: #fff;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        margin-bottom: 10px;
-    }
-    .card-row {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        width: 100%; /* Ensure row takes full width */
-        margin-bottom: 10px;
-    }
-
-    .btn:hover {
-        background-color: #0056b3;
-    }
-    .row-container {
-        display: flex;
-        align-items: right;
-        justify-content: space-between;
-        margin-bottom: 10px;
-    }
-    /* Logo styles */
+    
     .logo {
         width: 100px; /* Adjust size as needed */
         height: auto; /* Maintain aspect ratio */
         margin-top: 20px;
     }
-    .input-group {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-bottom: 10px;
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 20px;
+    }
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+    }
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+    th {
+        background-color: #1acc8d;
+    }
+    button.add-button {
+        background-color: #1acc8d;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        position: fixed;
+        top: 60px;
+        right: 69px;
+    }
+    button.add-button:hover {
+        background-color: #1acc8d;
     }
 </style>
 
@@ -277,7 +233,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'user_management' %}">
+                            <a class="nav-link" href="{% url 'dashboard' %}">
                                 <i class="	fas fa-user-check"></i>
                                 User Management
                             </a>
@@ -407,87 +363,28 @@
 
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                 <section class="container">
-                    <!--div class="card1">
-                        
-                        <div class="row-container">
-                           
-                            <div class="input-group">
-                                <label for="input1">Text 1:</label>
-                                <input type="text" id="input1" placeholder="Enter text 1">
-                            </div>
-                           
-                            <div class="input-group">
-                                <label for="input2">Text 2:</label>
-                                <input type="text" id="input2" placeholder="Enter text 2">
-                            </div>
-                           
-                            <div class="input-group">
-                                <label for="input3">Text 3:</label>
-                                <input type="text" id="input3" placeholder="Enter text 3">
-                            </div>
-                            
-                            <div class="input-group">
-                                <label for="input4">Text 4:</label>
-                                <input type="text" id="input4" placeholder="Enter text 4">
-                            </div>
-                        </div>
-                       
-                        <div class="row-container">
-                          
-                            <button class="btn">Button 1</button>
-                            <button class="btn">Button 2</button>
-                         
-                            <img src="logo.png" alt="Logo" class="logo">
-                        </div>
-                    </div-->
-                    <div class="row">
-                        <div class="container">
-                            <div class="card-container">
-                                <div class="card">
-                                    <div class="card-content">
-                                        <i class="fas fa-address-book" style="font-size: 32px; color: Violet;"></i>
-                                        <h5>Patient List</h5> <!-- Replace "Icon 1" with your actual icon -->
-                                        <p>103</p> <!-- Replace "Card 1" with your content -->
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <div class="card-content">
-                                        <i class="fas fa-address-card" style="font-size: 32px; color: SlateBlue;"></i>
-                                        
-                                        <h5>Due List</h5>
-                                        <p>122</p>
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <div class="card-content">
-                                        <i class="fas fa-user-friends" style="font-size: 32px; color: DodgerBlue;"></i>
-                                        <h5>Eligible Couples</h5>
-                                        <p>130</p>
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <div class="card-content">
-                                        <i class="fas fa-venus" style="font-size: 32px; color: orange;"></i>
-                                        <h5>Antental Registration</h5>
-                                        <p>100</p>
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <div class="card-content">
-                                        <i class="fas fa-file-medical" style="font-size: 32px; color: mediumseagreen;"></i>
-                                        <h5>Medical history<h5>
-                                        <p>90</p>
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <div class="card-content">
-                                        <i class="fas fa-user-check" style="font-size: 32px; color: Tomato;"></i>
-                                        <h5>High Risk Mothers</h5>
-                                        <p>50</p>
-                                    </div>
-                                </div>
-                            </div>
-              
+                    
+                    <h2>User Management</h2>
+                    <button class="add-button" onclick="window.location.href='/signup/'">Add User</button>
+    <table>
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Mobile</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+            <tr>
+                <td>{{ user.username }}</td>
+                <td>{{ user.mobile }}</td>
+                <td>{{ user.email }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
                 </section>
             </main>
         </div>
@@ -503,3 +400,4 @@
 </body>
 
 </html>
+

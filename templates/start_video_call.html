@@ -340,7 +340,7 @@
                         <!-- Existing links in the sidebar -->
                         <li class="nav-item">
                             <a class="navbar-brand" href="{% url 'dashboard' %}">
-                                <img src="{% static 'Image/Savemom.png' %}" alt="Hospital Portal Logo" style="height: 30px; width: auto;">
+                                <img src="{% static 'image/Savemom.png' %}" alt="Hospital Portal Logo" style="height: 30px; width: auto;">
                                 Savemom
                             </a>
                         </li><br>
@@ -361,6 +361,12 @@
                             <a class="nav-link" href="{% url 'dashboard' %}">
                                 <i class="fas fa-address-card"></i>
                                 Due List
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'user_management' %}">
+                                <i class="	fas fa-user-check"></i>
+                                User Management
                             </a>
                         </li>
                         <li class="nav-item">

@@ -29,7 +29,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     '127.0.0.1',
-    'tele-consultation.savemom.in',  # Add your domain if needed
+    'tele-consultation.savemom.in',  
+]
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend', 
+    'call.backends.CustomUserBackend',          
 ]
 
 

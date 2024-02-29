@@ -79,7 +79,10 @@ def signup(request):
     else:
         form = SignupForm()
     return render(request, 'signup.html', {'form': form})
-def user_login(request):
+from django.contrib.auth.decorators import login_required
+
+
+def user_login_view(request):
     if request.method == 'POST':
         form = UserLoginForm(request.POST)
         if form.is_valid():
@@ -88,19 +91,14 @@ def user_login(request):
             user = authenticate(username=username, password=password)
             if user is not None:
                 login(request, user)
-                return redirect('user_dashboard')
+                return redirect('user_dashboard')  # Redirect to user dashboard upon successful login
             else:
-                # Authentication failed, display error message
-                error_message = "Invalid username or password."
-                return render(request, 'user_login.html', {'form': form, 'error_message': error_message})
-        else:
-            # Form is not valid, display form with errors
-            return render(request, 'user_login.html', {'form': form})
+                messages.error(request, 'Invalid username or password.')
     else:
-        # If request method is not POST, display empty login form
         form = UserLoginForm()
-        return render(request, 'user_login.html', {'form': form})
+    return render(request, 'user_login.html', {'form': form})
 
+    
 def user_dashboard(request):
     if request.user.is_authenticated:
         # Render user dashboard
